@@ -46,6 +46,7 @@ async_api_client = AsyncApiClient(configuration)
 line_bot_api = AsyncMessagingApi(async_api_client)
 parser = WebhookParser(channel_secret)
 
+user_sessions = {}
 
 @app.post("/callback")
 async def handle_callback(request: Request):
@@ -64,33 +65,44 @@ async def handle_callback(request: Request):
         if not isinstance(event, MessageEvent):
             continue
        
-        # Show loading animation (>5)
+        # Start or get user session
+        user_id = event.source.user_id
+        if user_id not in user_sessions:
+            user_sessions[user_id] = model.start_chat()
+        
+        chat = user_sessions[user_id]
 
+        # Show loading animation (>5)
         await line_bot_api.show_loading_animation(
-        ShowLoadingAnimationRequest(chatId=event.source.user_id,loadingSeconds=30)
+            ShowLoadingAnimationRequest(chatId=user_id, loadingSeconds=30)
         )
 
         if isinstance(event.message, ImageMessageContent):
             image_binary = await AsyncMessagingApiBlob(AsyncApiClient(configuration)).get_message_content(event.message.id)
             image_buffer = io.BytesIO(image_binary)
             image = Image.open(image_buffer)
-            response = model.generate_content([
-                #r"""edit prompt here, then remove # """ ,
-                image])
+            
+            # Send image to the memory-aware chat object
+            response = chat.send_message(["ภาพนี้คืออาหารอะไร ช่วยแจกแจงส่วนประกอบและแคลอรีให้หน่อยค่ะ", image])
+            
             await line_bot_api.reply_message(
-            ReplyMessageRequest(
-                reply_token=event.reply_token,
-                messages=[TextMessage(text=response.text)]
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[TextMessage(text=response.text)]
                 )
             )
 
-        if not isinstance(event.message, TextMessageContent):
-            continue
-        await line_bot_api.reply_message(
-            ReplyMessageRequest(
-                reply_token=event.reply_token,
-                messages=[TextMessage(text=#"edit text response here, then remove #")]
+        elif isinstance(event.message, TextMessageContent):
+            user_text = event.message.text
+            
+            # Send the user text to the chat so the bot can remember corrections or questions
+            response = chat.send_message(user_text)
+            
+            await line_bot_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[TextMessage(text=response.text)]
+                )
             )
-        )
 
     return 'OK'
