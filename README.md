@@ -1,4 +1,4 @@
-# 🍲 How Many Cals? (Kin Ni Uan Mai Na?)
+# 🍲 How Many Cals
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
