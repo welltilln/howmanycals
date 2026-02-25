@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime
 import os
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "users.db")
+DB_PATH = os.path.join(os.path.dirname(__file__), "..", "users.db")
 
 def init_db():
     """Initialize the SQLite database and create the users table if it doesn't exist."""

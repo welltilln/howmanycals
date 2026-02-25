@@ -3,10 +3,10 @@ import sys
 from dotenv import load_dotenv
 load_dotenv()
 from fastapi import Request, FastAPI, HTTPException
-from gemini import model
+from app.gemini import model
 from PIL import Image
 import io
-import database  # Import the new SQLite database manager
+import app.database as database  # Import the new SQLite database manager
 
 from linebot.v3.webhook import WebhookParser
 from linebot.v3.messaging import (

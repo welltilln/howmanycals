@@ -35,7 +35,7 @@ echo [Info] Installing requirements...
 pip install -r requirements.txt --quiet
 
 REM Run the app
-echo [Info] Starting the connector...
-python main.py
+echo 🚀 Starting FastAPI server with hot-reload...
+python -m app.main
 
 pause

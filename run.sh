@@ -34,5 +34,5 @@ echo "📥 Installing requirements (this might take a moment)..."
 pip install -r requirements.txt --quiet
 
 # Run the app
-echo "🚀 Starting the connector..."
-python main.py
+echo "🚀 Starting FastAPI server with hot-reload..."
+python -m app.main
