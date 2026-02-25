@@ -5,6 +5,12 @@
 **A production-ready AI Nutritionist LINE Bot powered by Google Gemini 2.5 Flash.** <br>
 *Built entirely on the [fastapi-line-gemini](https://github.com/welltilln/fastapi-line-gemini) boilerplate.*
 
+<p align="center">
+    <a href="README.md">English</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="README-TH.md">ภาษาไทย</a>
+</p>
+
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-00a67d?logo=fastapi)](https://fastapi.tiangolo.com)
 [![Gemini](https://img.shields.io/badge/Gemini-2.5_Flash-orange?logo=google)](https://ai.google.dev/)
