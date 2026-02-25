@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍲 How Many Cals (AI Nutritionist)
+# How Many Cals (AI Nutritionist)
 
 **A production-ready AI Nutritionist LINE Bot powered by Google Gemini 2.5 Flash.** <br>
 *Built entirely on the [fastapi-line-gemini](https://github.com/welltilln/fastapi-line-gemini) boilerplate.*
@@ -10,11 +10,11 @@
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="README-ZH.md">简体中文</a>
+    <a href="README-ZH.md"></a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="README-JA.md">日本語</a>
+    <a href="README-JA.md"></a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="README-KO.md">한국어</a>
+    <a href="README-KO.md"></a>
 </p>
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -27,7 +27,7 @@
 
 <br/>
 
-## 📖 Overview
+## Overview
 
 **How Many Cals** is an intelligent LINE Official Account that acts as your personal nutritionist. It leverages Google's Gemini Vision to X-ray your food images, extracting exact calorie counts and breaking down meal components.
 
@@ -35,17 +35,17 @@ Unlike typical stateless bots, this template features a **Persistent SQLite Memo
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-* 📸 **Smart Vision Analysis:** Send a picture of any complex dish (like mixed curries on rice), and the bot will identify every single component and calculate the exact calories.
-* 🧠 **Persistent SQLite DB:** User chat history (total daily calories) is safely stored in a local SQLite database, surviving server restarts.
-* 🔄 **Automatic Daily Reset:** The bot intelligently checks the timestamp of the last interaction. If a new day has started, the calorie count resets to zero automatically.
-* 🎯 **Dynamic Correction System:** If the AI hallucinates or misidentifies a dish, the user can simply text the correct name. The bot will instantly recalculate and update the database.
+* **Smart Vision Analysis:** Send a picture of any complex dish (like mixed curries on rice), and the bot will identify every single component and calculate the exact calories.
+* **Persistent SQLite DB:** User chat history (total daily calories) is safely stored in a local SQLite database, surviving server restarts.
+* **Automatic Daily Reset:** The bot intelligently checks the timestamp of the last interaction. If a new day has started, the calorie count resets to zero automatically.
+* **Dynamic Correction System:** If the AI hallucinates or misidentifies a dish, the user can simply text the correct name. The bot will instantly recalculate and update the database.
 * **Zero-Configuration Launch:** Experience frictionless local development. The included `run.sh` / `run.bat` auto-scripts instantiate virtual environments and Ngrok tunnels in one click.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 sequenceDiagram
@@ -76,7 +76,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 Before you begin, ensure you have the following credentials:
@@ -113,7 +113,7 @@ Copy the generated Ngrok URL from your terminal (e.g., `https://xxxx.ngrok.app/c
 
 ---
 
-## 🐳 Production Deployment (Docker)
+## Production Deployment (Docker)
 
 For 24/7 hosting on a Virtual Private Server (VPS) without relying on Ngrok, utilize the included Docker configuration.
 
@@ -126,7 +126,7 @@ docker-compose up -d --build
 
 ---
 
-## 🎨 Modifying the AI Persona (Customization)
+## Modifying the AI Persona (Customization)
 
 You don't have to keep this bot as a nutritionist. You can easily reprogram the AI to be a fitness coach, a sarcastic accountant, or a strict parent.
 
@@ -140,13 +140,13 @@ system_prompt = """
 You are a brutal, sarcastic fitness coach. 
 When the user sends a food image, calculate the calories precisely. If the calories are over 500, scold them intensely and tell them to do 50 pushups.
 Format output:
-🔥 Calories: [Number]
-🤬 Coach Says: [Your sarcastic comment]
-📊 Total Today: [Number]
+Calories: [Number]
+Coach Says: [Your sarcastic comment]
+Total Today: [Number]
 """
 ```
 
-### ⬆️ Upgrading the AI Model (Future-Proofing)
+### Upgrading the AI Model (Future-Proofing)
 If a newer, smarter Gemini model is released in the future (e.g., Gemini 3.0), you don't need to rewrite the project! Simply open `app/gemini.py` and change the `model_name` string to the new version:
 ```python
 model = genai.GenerativeModel(
@@ -157,12 +157,12 @@ model = genai.GenerativeModel(
 
 ---
 
-## 🤖 Built With
+## Built With
 - **[FastAPI](https://fastapi.tiangolo.com/)** - High performance Python web framework
 - **[Google Generative AI](https://ai.google.dev/)** - Gemini 1.5/2.5 Flash Vision Models
 - **[LINE Messaging API SDK](https://github.com/line/line-bot-sdk-python)** - For seamless Webhook integrations
 - **SQLite** - C-language library that implements a small, fast, self-contained SQL database engine
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
