@@ -6,7 +6,7 @@
 *[fastapi-line-gemini](https://github.com/welltilln/fastapi-line-gemini) *
 
 <p align="center">
-    <a href="README.md">English</a>
+    <a href="../README.md">English</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -108,4 +108,4 @@ model = genai.GenerativeModel(
 **A:** LINE “”Gemini **Q: **
 **A:** `system_prompt`“/”---
 
-## MIT - [LICENSE](LICENSE) 
+## MIT - [LICENSE](../LICENSE) 

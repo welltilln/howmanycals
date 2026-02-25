@@ -6,7 +6,7 @@
 *ต่อยอดและต่อเติมอย่างสมบูรณ์จากโปรเจคต้นแบบ [fastapi-line-gemini](https://github.com/welltilln/fastapi-line-gemini)*
 
 <p align="center">
-    <a href="README.md">English</a>
+    <a href="../README.md">English</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -58,17 +58,15 @@ sequenceDiagram
     User->>LINE: ส่งรููปภาพ หรือข้อความ
     LINE->>App: ยิง Webhook POST Request
     
-    rect rgb(200, 220, 240)
+
         Note right of App: ชั้นจัดการฐานข้อมูล (Database)
         App->>DB: ดึงข้อมูลแคลอรีล่าสุด / รีเซ็ตแคลอรีถ้าขึ้นวันใหม่
-    end
 
     App->>Gemini: ส่งคำสั่ง Prompt + ข้อมูลแคลอรีปัจจุบัน + รูปภาพ 
     Gemini-->>App: ประเมินแคลอรีในรูปและส่งผลลัพธ์โครงสร้างอาหารมาให้
     
-    rect rgb(200, 220, 240)
+
         App->>DB: อัปเดตและเซฟยอดแคลอรีล่าสุดลง DB
-    end
 
     App-->>LINE: ส่ง POST API แบบ Reply Message
     LINE-->>User: บอทตอบกลับแคลอรีและให้คำแนะนำ
@@ -192,4 +190,4 @@ model = genai.GenerativeModel(
 
 ## ลิขสิทธิ์ (License)
 
-โปรเจคนี้อยู่ภายใต้ใบอนุญาตแบบ MIT License - เยี่ยมชมไฟล์ [LICENSE](LICENSE) สำหรับข้อมูลเพิ่มเติม
+โปรเจคนี้อยู่ภายใต้ใบอนุญาตแบบ MIT License - เยี่ยมชมไฟล์ [LICENSE](../LICENSE) สำหรับข้อมูลเพิ่มเติม

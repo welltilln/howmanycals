@@ -8,13 +8,13 @@
 <p align="center">
     <a href="README.md">English</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="README-TH.md">ภาษาไทย</a>
+    <a href="docs/README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="README-ZH.md"></a>
+    <a href="docs/README-ZH.md"></a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="README-JA.md"></a>
+    <a href="docs/README-JA.md"></a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="README-KO.md"></a>
+    <a href="docs/README-KO.md"></a>
 </p>
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -58,17 +58,15 @@ sequenceDiagram
     User->>LINE: Sends Food Image/Text
     LINE->>App: Webhook POST Request
     
-    rect rgb(200, 220, 240)
+
         Note right of App: Database Layer
         App->>DB: Fetch/Reset User's Daily Calories
-    end
 
     App->>Gemini: Sends Image + Current Calorie Total + System Prompt
     Gemini-->>App: Breakdown of Food & Total Calories
     
-    rect rgb(200, 220, 240)
+
         App->>DB: Update New Total Calories
-    end
 
     App-->>LINE: Reply Message POST
     LINE-->>User: Bot Replies with exact calories & tips
