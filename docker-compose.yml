@@ -8,4 +8,6 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    volumes:
+      - ./users.db:/app/users.db
     restart: unless-stopped
