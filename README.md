@@ -146,6 +146,15 @@ Format output:
 """
 ```
 
+### ⬆️ Upgrading the AI Model (Future-Proofing)
+If a newer, smarter Gemini model is released in the future (e.g., Gemini 3.0), you don't need to rewrite the project! Simply open `app/gemini.py` and change the `model_name` string to the new version:
+```python
+model = genai.GenerativeModel(
+  model_name="gemini-3.0-pro", # <-- UPDATE THIS LINE
+  ...
+)
+```
+
 ---
 
 ## 🤖 Built With

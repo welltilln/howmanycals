@@ -160,6 +160,15 @@ system_prompt = """
 """
 ```
 
+### ⬆️ 升级大语言模型 (Future-Proofing)
+如果在未来发布了更强大的模型（比如 Gemini 3.0），您完全不需要重写代码！只需打开 `app/gemini.py`，并将 `model_name` 字段更改为最新的模型名称即可：
+```python
+model = genai.GenerativeModel(
+  model_name="gemini-3.0-pro", # <-- 更新此行参数
+  ...
+)
+```
+
 ---
 
 ## ❓ 常见问题解答 (FAQ)
