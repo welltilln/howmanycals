@@ -10,11 +10,11 @@
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="docs/README-TH.md">ภาษาไทย</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-ZH.md"></a>
+    <a href="docs/README-ZH.md">简体中文</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-JA.md"></a>
+    <a href="docs/README-JA.md">日本語</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-KO.md"></a>
+    <a href="docs/README-KO.md">한국어</a>
 </p>
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
