@@ -29,3 +29,4 @@ We welcome Pull Requests!
 3. Please make sure not to include `.env` or personal credentials in your commits.
 
 Happy Coding! 
+ 

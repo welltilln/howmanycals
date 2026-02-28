@@ -9,3 +9,4 @@ Dockerfile linguist-vendored
 docker-compose.yml linguist-vendored
 requirements.txt linguist-vendored
 venv/** linguist-vendored
+ 
