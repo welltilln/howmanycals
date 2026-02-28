@@ -2,8 +2,8 @@
 
 # How Many Cals (AI Nutritionist)
 
-** LINE  (AI Nutritionist)  Production-ready  Google Gemini 2.5 Flash** <br>
-* [fastapi-line-gemini](https://github.com/welltilln/fastapi-line-gemini)*
+**ระบบนักโภชนาการ AI พร้อมใช้งานบน LINE พัฒนาด้วย Google Gemini 2.5 Flash** <br>
+*สร้างโดยใช้ [fastapi-line-gemini](https://github.com/welltilln/fastapi-line-gemini) boilerplate*
 
 <p align="center">
     <a href="../README.md"><img src="https://img.shields.io/badge/Language-English-blue?style=for-the-badge" alt="English"></a>
@@ -15,161 +15,121 @@
 
 ---
 
-##  (Overview)
+## ภาพรวม (Overview)
 
-**How Many Cals**  LINE   Gemini Vision  
+**How Many Cals** คือ LINE Official Account ที่ใช้พลังของ Gemini Vision ในการวิเคราะห์ภาพอาหารและคำนวณแคลอรี่โดยอัตโนมัติ
 
-  ** SQLite (Persistent SQLite Memory)**   AI 
-
----
-
-##  (Key Features)
-
-* **:**  ( ) 
-* ** SQLite:**  SQLite   
-* **:**   
-* **:**  AI   
-* ** Zero-Config:**  `run.sh` / `run.bat`  Virtual Environment,  Dependencies  Ngrok Tunnel 
+แอปพลิเคชันนี้ใช้ **ฐานข้อมูล SQLite แบบถาวร** เพื่อจดจำบริบทของผู้ใช้ ทำให้ AI สามารถตอบสนองได้อย่างเป็นส่วนตัวตามประวัติการสนทนา
 
 ---
 
-##  (Architecture)
+## ฟีเจอร์หลัก (Key Features)
+
+* **วิเคราะห์ภาพอาหาร:** ส่งภาพอาหารเพื่อให้ AI คำนวณแคลอรี่และสารอาหาร
+* **หน่วยความจำ SQLite:** บันทึกประวัติการใช้งานรายบุคคลเพื่อความต่อเนื่อง
+* **รองรับหลายภาษา:** ตอบโต้ได้ทั้งภาษาไทยและอังกฤษ
+* **ความเร็วสูง:** ใช้โมเดล Gemini Flash เพื่อการประมวลผลที่รวดเร็ว
+* **ตั้งค่าง่าย:** มาพร้อมสคริปต์ `run.sh` / `run.bat` ที่จัดการ Virtual Environment และ Ngrok ให้โดยอัตโนมัติ
+
+---
+
+## สถาปัตยกรรม (Architecture)
 
 ```mermaid
 sequenceDiagram
-    participant User as LINE User
+    participant User as ผู้ใช้ LINE
     participant LINE as LINE Platform
-    participant App as FastAPI Server
-    participant DB as SQLite DB
+    participant App as เซิร์ฟเวอร์ FastAPI
+    participant DB as ฐานข้อมูล SQLite
     participant Gemini as Google Gemini API
 
-    User->>LINE: /
-    LINE->>App:  Webhook POST Request
-    Note right of App:  (Database)
-    App->>DB: /
-    App->>Gemini:  +  + System Prompt
-    Gemini-->>App: 
-    App->>DB:  DB
-    App-->>LINE:  POST API  Reply Message
-    LINE-->>User: 
+    User->>LINE: ส่งภาพอาหาร
+    LINE->>App: ส่ง Webhook POST Request
+    Note right of App: ตรวจสอบประวัติ (Database)
+    App->>DB: ดึงข้อมูลเดิม
+    App->>Gemini: ภาพ + ข้อความ + ประวัติ
+    Gemini-->>App: ผลการวิเคราะห์
+    App->>DB: บันทึกข้อมูลใหม่
+    App-->>LINE: ส่งข้อความตอบกลับ
+    LINE-->>User: แสดงผลแคลอรี่
 ```
 
 ---
 
-##  (Quick Start Setup)
+## การเริ่มใช้งานอย่างรวดเร็ว (Quick Start)
 
-###  (Prerequisites)
-1. **[LINE Messaging API](https://developers.line.biz/console/):**  `Channel Secret`  `Channel Access Token`  LINE Developers
-2. **[Google Gemini API Key](https://aistudio.google.com/):**  API Key  Google AI Studio
-3. **[Ngrok Auth Token](https://dashboard.ngrok.com/):**  Webhook  LINE 
+### สิ่งที่ต้องเตรียม
+1. **[LINE Messaging API](https://developers.line.biz/console/):** รับ `Channel Secret` และ `Channel Access Token`
+2. **[Google Gemini API Key](https://aistudio.google.com/):** รับ API Key จาก Google AI Studio
+3. **[Ngrok Auth Token](https://dashboard.ngrok.com/):** สำหรับการทำ Webhook บนเครื่อง Local
 
-###  1: 
+### ขั้นตอนที่ 1: ติดตั้ง
 ```bash
 git clone https://github.com/welltilln/howmanycals.git
 cd howmanycals
 ```
- `.env.example`  `.env`  API Key :
+คัดลอก `.env.example` เป็น `.env` และใส่ API Key ของคุณ:
 ```env
-LINE_CHANNEL_SECRET=your_secret_here
-LINE_CHANNEL_ACCESS_TOKEN=your_token_here
-GEMINI_API_KEY=your_gemini_key_here
-NGROK_AUTHTOKEN=your_ngrok_token_here
+LINE_CHANNEL_SECRET=ใส่รหัสที่นี่
+LINE_CHANNEL_ACCESS_TOKEN=ใส่โทเค็นที่นี่
+GEMINI_API_KEY=ใส่คีย์ที่นี่
+NGROK_AUTHTOKEN=ใส่โทเค็นที่นี่
 ```
 
-###  2: 
- **MacOS / Linux**:
+### ขั้นตอนที่ 2: รันโปรแกรม
+**MacOS / Linux**:
 ```bash
 ./run.sh
 ```
- **Windows**:
+**Windows**:
 ```cmd
 run.bat
 ```
-*(,  FastAPI,  `users.db`  Ngrok Tunnel )*
+*(สคริปต์จะติดตั้งDependencies, สร้าง `users.db` และเปิด Ngrok ให้โดยอัตโนมัติ)*
 
-###  3:  Webhook  LINE
- Ngrok URL  Terminal ( `https://xxxx.ngrok.app/callback`)  **Webhook URL**  LINE Developers Console  Verify !
+### ขั้นตอนที่ 3: ตั้งค่า Webhook
+คัดลอก URL จาก Ngrok (เช่น `https://xxxx.ngrok.app/callback`) ไปวางในช่อง **Webhook URL** ใน LINE Developers Console และกด Verify
 
 ---
 
-##  Production (Docker)
+## การใช้งานบน Production (Docker)
 
- VPS  ( 24 .  Ngrok)  Docker :
+สำหรับการรันบน VPS หรือเซิร์ฟเวอร์ที่ต้องการความคงทน ไม่ต้องใช้ Ngrok:
 
-1.  [Docker](https://docs.docker.com/get-docker/)  [Docker Compose](https://docs.docker.com/compose/) 
-2.  Background (Detached Data):
+1. ตรวจสอบว่ามี [Docker](https://docs.docker.com/get-docker/) และ [Docker Compose](https://docs.docker.com/compose/)
+2. รันคำสั่ง:
 ```bash
 docker-compose up -d --build
 ```
-*:  `users.db`  Mount  Volume *
+*หมายเหตุ: ข้อมูลใน `users.db` จะถูกเก็บไว้ใน Volume ต่อให้ลบคอนเทนเนอร์ ข้อมูลก็ยังอยู่*
 
 ---
 
-##  AI (Language & Persona Customization)
+## การปรับแต่งตัวตนของ AI (Persona Customization)
 
-   (Reprogram):
+คุณสามารถเปลี่ยนนิสัยหรือภาษาของ AI ได้ง่ายๆ:
 
-1.  `app/gemini.py`
-2.  `system_prompt`
-3.  (`"""`) 
-
-** AI ():**
-```python
-system_prompt = """
- AI 
-
-
- ():
-: []
-: [] kcal
-: [] kcal
-"""
-```
-
-** "":**
-```python
-system_prompt = """
- "" 
- 
- 500 kcal  50 
-
- ():
-: [] kcal
-: []
-: [] kcal
-"""
-```
-
-###  AI (Future-Proofing)
- Google  ( Gemini 3.0) !  `app/gemini.py`  `model_name`:
-```python
-model = genai.GenerativeModel(
-  model_name="gemini-3.0-pro", # <-- 
-  ...
-)
-```
+1. เปิดไฟล์ `app/gemini.py`
+2. แก้ไขตัวแปร `system_prompt`
+3. เขียนคำอธิบายตัวตนที่ต้องการลงไป
 
 ---
 
-##  (FAQ)
+## คำถามที่พบบ่อย (FAQ)
 
-**Q: ?**
-**A:**  " (On-Demand Logic)"   (Timezone) 
+**Q: ข้อมูลมีการเก็บรักษาอย่างไร?**
+**A:** ทุกการสนทนาจะถูกผูกกับ LINE User ID และเก็บลงในไฟล์ SQLite ในเครื่อง
 
-**Q:  Error ?**
-**A:**  Log  Terminal  Ngrok  Google Gemini API 
-
-**Q: ?**
-**A:** !  `system_prompt`   
+**Q: ทำไมภาพไม่แสดงผล?**
+**A:** ตรวจสอบ Log ใน Terminal ว่า Ngrok ทำงานปกติหรือไม่ และ API Key ของ Google ยังใช้งานได้อยู่หรือไม่
 
 ---
 
-##  (Built With)
-- **[FastAPI](https://fastapi.tiangolo.com/)** -  Python 
-- **[Google Generative AI](https://ai.google.dev/)** -  Gemini 1.5/2.5 Flash Vision Models
-- **[LINE Messaging API SDK](https://github.com/line/line-bot-sdk-python)** -  Webhooks  LINE
-- **SQLite** -   Database Server 
+## พัฒนาด้วย
+- **[FastAPI](https://fastapi.tiangolo.com/)**
+- **[Google Generative AI](https://ai.google.dev/)**
+- **[LINE Messaging API SDK](https://github.com/line/line-bot-sdk-python)**
+- **SQLite**
 
-##  (License)
-
- MIT License -  [LICENSE](../LICENSE)
+## ลิขสิทธิ์ (License)
+MIT License - ดูรายละเอียดใน [LICENSE](../LICENSE)
