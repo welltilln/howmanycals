@@ -1,0 +1,11 @@
+# Language overrides
+docs/** linguist-documentation
+*.md linguist-documentation
+LICENSE linguist-documentation
+CONTRIBUTING.md linguist-documentation
+run.sh linguist-documentation
+run.bat linguist-documentation
+Dockerfile linguist-vendored
+docker-compose.yml linguist-vendored
+requirements.txt linguist-vendored
+venv/** linguist-vendored

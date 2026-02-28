@@ -57,17 +57,11 @@ sequenceDiagram
 
     User->>LINE: Sends Food Image/Text
     LINE->>App: Webhook POST Request
-    
-
-        Note right of App: Database Layer
-        App->>DB: Fetch/Reset User's Daily Calories
-
+    Note right of App: Database Layer
+    App->>DB: Fetch/Reset User's Daily Calories
     App->>Gemini: Sends Image + Current Calorie Total + System Prompt
     Gemini-->>App: Breakdown of Food & Total Calories
-    
-
-        App->>DB: Update New Total Calories
-
+    App->>DB: Update New Total Calories
     App-->>LINE: Reply Message POST
     LINE-->>User: Bot Replies with exact calories & tips
 ```
