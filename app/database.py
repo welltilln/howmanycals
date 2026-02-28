@@ -81,4 +81,3 @@ def update_user_calories(user_id: str, added_calories: int):
 
 # Initialize the db when module is imported
 init_db()
- 

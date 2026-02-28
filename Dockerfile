@@ -21,4 +21,3 @@ EXPOSE 8000
 
 # Start the application
 CMD ["python", "-m", "app.main"]
- 

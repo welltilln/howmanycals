@@ -56,4 +56,3 @@ model = genai.GenerativeModel(
         HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
         },
 )
- 

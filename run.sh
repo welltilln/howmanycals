@@ -36,4 +36,3 @@ pip install -r requirements.txt --quiet
 # Run the app
 echo " Starting FastAPI server with hot-reload..."
 python -m app.main
- 

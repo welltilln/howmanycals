@@ -11,4 +11,3 @@ services:
     volumes:
       - ./users.db:/app/users.db
     restart: unless-stopped
- 
