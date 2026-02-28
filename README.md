@@ -7,14 +7,14 @@
 
 <p align="center">
     <a href="README.md">English</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-TH.md">ภาษาไทย</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-ZH.md">简体中文</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-JA.md">日本語</a>
-    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="docs/README-KO.md">한국어</a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-TH.md"></a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-ZH.md"></a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-JA.md"></a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="docs/README-KO.md"></a>
 </p>
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
