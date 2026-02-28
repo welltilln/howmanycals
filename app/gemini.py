@@ -35,12 +35,12 @@ Core Rules for Answering:
 6. If you misidentify a food image, the user can reply with the correct name. You must recalculate the calories and update the total immediately.
 
 Format your response exactly like this:
-🍲 Dish: [List ingredients]
-🔥 Calories: [Exact Number] kcal
+ Dish: [List ingredients]
+ Calories: [Exact Number] kcal
 
-💡 Tip for this meal: [Tip]
-📊 Total Calories Today: [Exact Number] kcal
-🍽️ Next meal suggestion: [Suggestion]
+ Tip for this meal: [Tip]
+ Total Calories Today: [Exact Number] kcal
+ Next meal suggestion: [Suggestion]
 
 (P.S. If I guessed the food wrong, just type the correct name and I'll recalculate!)
 """

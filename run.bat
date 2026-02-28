@@ -1,6 +1,6 @@
 @echo off
 echo =========================================
-echo  🍲 How Many Cals Bot Setup (Windows)
+echo   How Many Cals Bot Setup (Windows)
 echo =========================================
 
 REM Check if Python is installed
@@ -35,7 +35,7 @@ echo [Info] Installing requirements...
 pip install -r requirements.txt --quiet
 
 REM Run the app
-echo 🚀 Starting FastAPI server with hot-reload...
+echo  Starting FastAPI server with hot-reload...
 python -m app.main
 
 pause
